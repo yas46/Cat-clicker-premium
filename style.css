@@ -39,7 +39,7 @@
 li {
     font-size: 18px;
     font-family: 'Comfortaa', cursive;
-    padding: 4px;
+    padding: 3px;
 }
 li:hover {
     cursor: pointer;
@@ -58,4 +58,37 @@ li:before {
     left: -1em;
     top: 0.9em;
     position: relative;
+}
+
+#admin-btn {
+    border: none;
+    padding: 6px 10px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    margin: 20px 32px;
+    cursor: pointer;
+    float: left;
+}
+
+.admin-box {
+    width: 230px;
+    float: left;
+    margin-top: 20px;
+    display: none;
+}
+
+.save-cancel-btn {
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    float:right;
+    padding: 4px 8px;
+    margin: 6px 0 0 6px;
+}
+
+.admin-input {
+    padding: 4px 0;
+    float: right;
 }

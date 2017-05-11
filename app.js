@@ -29,7 +29,8 @@
                 name: "Sue",
                 url: "c2.staticflickr.com/4/3360/3591850431_4599f509e2"
             }
-        ]
+        ],
+        adminBoxVisible: false
     };
 
     var catView = {
@@ -38,9 +39,16 @@
             this.catName = document.getElementById('cat-name');
             this.clickCount  = document.getElementById('click-count');
             this.catPhoto = document.getElementById('cat-photo');
+            this.adminBtn = document.getElementById('admin-btn');
+            this.adminBox = document.getElementById('admin-box');
 
             this.catPhoto.addEventListener('click', function(e) {
                 controller.incrementClickCount();
+            });
+
+            this.adminBtn.addEventListener('click', function() {
+                console.log("click");
+                controller.showAdminBox();
             });
 
             this.render();
@@ -50,6 +58,10 @@
             this.catName.textContent = currentCat.name;
             this.clickCount.textContent = currentCat.clickCount;
             this.catPhoto.src = 'https://' + currentCat.url + '.jpg';
+            if (model.adminBoxVisible) {
+                console.log("display");
+                adminBox.display = "block";
+            }
         }
     };
 
@@ -99,7 +111,16 @@
         incrementClickCount: function(){
             model.currentCat.clickCount++;
             catView.render();
+        },
+
+        hideAdminBox: function () {
+            model.adminBoxVisible = false;
+        },
+
+        showAdminBox: function () {
+            model.adminBoxVisible = true;
         }
+
     };
 
     controller.init();
