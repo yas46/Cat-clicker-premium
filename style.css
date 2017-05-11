@@ -71,7 +71,7 @@ li:before {
     float: left;
 }
 
-.admin-box {
+#admin-box {
     width: 230px;
     float: left;
     margin-top: 20px;
@@ -91,4 +91,8 @@ li:before {
 .admin-input {
     padding: 4px 0;
     float: right;
+}
+
+.admin-input-label {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }

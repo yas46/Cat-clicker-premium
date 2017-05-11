@@ -41,14 +41,18 @@
             this.catPhoto = document.getElementById('cat-photo');
             this.adminBtn = document.getElementById('admin-btn');
             this.adminBox = document.getElementById('admin-box');
+            this.adminCancelBtn = document.getElementById('cancel-btn');
 
             this.catPhoto.addEventListener('click', function(e) {
                 controller.incrementClickCount();
             });
 
             this.adminBtn.addEventListener('click', function() {
-                console.log("click");
                 controller.showAdminBox();
+            });
+
+            this.adminCancelBtn.addEventListener('click', function() {
+                controller.hideAdminBox();
             });
 
             this.render();
@@ -58,9 +62,10 @@
             this.catName.textContent = currentCat.name;
             this.clickCount.textContent = currentCat.clickCount;
             this.catPhoto.src = 'https://' + currentCat.url + '.jpg';
-            if (model.adminBoxVisible) {
-                console.log("display");
-                adminBox.display = "block";
+            if (model.adminBoxVisible === true) {
+                this.adminBox.style.display = "block";
+            } else {
+                this.adminBox.style.display = "none";
             }
         }
     };
@@ -115,10 +120,12 @@
 
         hideAdminBox: function () {
             model.adminBoxVisible = false;
+            catView.render();
         },
 
         showAdminBox: function () {
             model.adminBoxVisible = true;
+            catView.render();
         }
 
     };
