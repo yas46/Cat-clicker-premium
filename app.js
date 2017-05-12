@@ -30,7 +30,8 @@
                 url: "c2.staticflickr.com/4/3360/3591850431_4599f509e2"
             }
         ],
-        adminBoxVisible: false
+        adminBoxVisible: false,
+        photoClicked: false
     };
 
     var catView = {
@@ -62,6 +63,15 @@
             this.catName.textContent = currentCat.name;
             this.clickCount.textContent = currentCat.clickCount;
             this.catPhoto.src = 'https://' + currentCat.url + '.jpg';
+
+            if(model.photoClicked === true) {
+                this.catPhoto.className = "photo-click";
+                setTimeout(function() {
+                    catView.catPhoto.className = "cat-photo";
+                    model.photoClicked = false;
+                }, 70);
+            }
+
             if (model.adminBoxVisible === true) {
                 this.adminBox.style.display = "block";
             } else {
@@ -115,6 +125,7 @@
 
         incrementClickCount: function(){
             model.currentCat.clickCount++;
+            model.photoClicked = true;
             catView.render();
         },
 
@@ -126,7 +137,7 @@
         showAdminBox: function () {
             model.adminBoxVisible = true;
             catView.render();
-        }
+        },
 
     };
 
