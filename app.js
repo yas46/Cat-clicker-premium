@@ -62,6 +62,9 @@
                 }, 70);
             }
 
+            this.adminBtn.addEventListener('click', function() {
+                controller.showAdminBox();
+            });
         }
     };
 
@@ -89,13 +92,9 @@
     };
 
     var adminView = {
-        inti: function () {
+        init: function () {
             this.adminBox = document.getElementById('admin-box');
             this.adminCancelBtn = document.getElementById('cancel-btn');
-
-            this.adminBtn.addEventListener('click', function() {
-                controller.showAdminBox();
-            });
 
             this.adminCancelBtn.addEventListener('click', function() {
                 controller.hideAdminBox();
@@ -119,6 +118,7 @@
 
             listView.init();
             catView.init();
+            adminView.init();
         },
 
         getCurrentCat: function() {
