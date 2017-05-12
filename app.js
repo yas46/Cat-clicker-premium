@@ -41,19 +41,9 @@
             this.clickCount  = document.getElementById('click-count');
             this.catPhoto = document.getElementById('cat-photo');
             this.adminBtn = document.getElementById('admin-btn');
-            this.adminBox = document.getElementById('admin-box');
-            this.adminCancelBtn = document.getElementById('cancel-btn');
 
             this.catPhoto.addEventListener('click', function(e) {
                 controller.incrementClickCount();
-            });
-
-            this.adminBtn.addEventListener('click', function() {
-                controller.showAdminBox();
-            });
-
-            this.adminCancelBtn.addEventListener('click', function() {
-                controller.hideAdminBox();
             });
 
             this.render();
@@ -72,11 +62,6 @@
                 }, 70);
             }
 
-            if (model.adminBoxVisible === true) {
-                this.adminBox.style.display = "block";
-            } else {
-                this.adminBox.style.display = "none";
-            }
         }
     };
 
@@ -101,6 +86,31 @@
                 this.ul.appendChild(li);
             };
         }
+    };
+
+    var adminView = {
+        inti: function () {
+            this.adminBox = document.getElementById('admin-box');
+            this.adminCancelBtn = document.getElementById('cancel-btn');
+
+            this.adminBtn.addEventListener('click', function() {
+                controller.showAdminBox();
+            });
+
+            this.adminCancelBtn.addEventListener('click', function() {
+                controller.hideAdminBox();
+            });
+
+            this.render();
+
+        },
+        render: function () {
+            if (model.adminBoxVisible === true) {
+                this.adminBox.style.display = "block";
+            } else {
+                this.adminBox.style.display = "none";
+            }
+        },
     };
 
     var controller = {
@@ -131,12 +141,12 @@
 
         hideAdminBox: function () {
             model.adminBoxVisible = false;
-            catView.render();
+            adminView.render();
         },
 
         showAdminBox: function () {
             model.adminBoxVisible = true;
-            catView.render();
+            adminView.render();
         },
 
     };
