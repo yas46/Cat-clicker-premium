@@ -7,27 +7,27 @@
             {
                 clickCount: 0,
                 name: "Tom",
-                url: "c2.staticflickr.com/2/1557/25135549306_b671c01053_z"
+                url: "https://c2.staticflickr.com/2/1557/25135549306_b671c01053_z.jpg"
             },
             {
                 clickCount: 0,
                 name: "Felix",
-                url: "c2.staticflickr.com/6/5482/11637643254_8d7d8f4b48_z"
+                url: "https://c2.staticflickr.com/6/5482/11637643254_8d7d8f4b48_z.jpg"
             },
             {
                 clickCount: 0,
                 name: "Garfield",
-                url: "c1.staticflickr.com/9/8501/8300920648_d4a21bba59"
+                url: "https://c1.staticflickr.com/9/8501/8300920648_d4a21bba59.jpg"
             },
             {
                 clickCount: 0,
                 name: "Alley",
-                url: "c1.staticflickr.com/3/2386/1696417701_2ba5cda00c"
+                url: "https://c1.staticflickr.com/3/2386/1696417701_2ba5cda00c.jpg"
             },
             {
                 clickCount: 0,
                 name: "Sue",
-                url: "c2.staticflickr.com/4/3360/3591850431_4599f509e2"
+                url: "https://c2.staticflickr.com/4/3360/3591850431_4599f509e2.jpg"
             }
         ],
         adminBoxVisible: false,
@@ -52,7 +52,7 @@
             var currentCat = controller.getCurrentCat();
             this.catName.textContent = currentCat.name;
             this.clickCount.textContent = currentCat.clickCount;
-            this.catPhoto.src = 'https://' + currentCat.url + '.jpg';
+            this.catPhoto.src = currentCat.url;
 
             if(model.photoClicked === true) {
                 this.catPhoto.className = "photo-click";
