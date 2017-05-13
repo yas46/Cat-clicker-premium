@@ -95,13 +95,21 @@
         init: function () {
             this.adminBox = document.getElementById('admin-box');
             this.adminCancelBtn = document.getElementById('cancel-btn');
+            this.adminSaveBtn = document.getElementById('save-btn');
 
             this.adminCancelBtn.addEventListener('click', function() {
                 controller.hideAdminBox();
             });
 
-            this.render();
+            this.adminSaveBtn.addEventListener('click', function() {
+                var nameInputValue = document.getElementById('name-input').value;
+                var urlInputValue = document.getElementById('url-input').value;
+                var clicksInputValue = document.getElementById('clicks-input').value;
+                console.log(nameInputValue);
+                controller.saveAdminInput(nameInputValue, urlInputValue, clicksInputValue);
+            });
 
+            this.render();
         },
         render: function () {
             if (model.adminBoxVisible === true) {
@@ -109,13 +117,15 @@
             } else {
                 this.adminBox.style.display = "none";
             }
+            document.getElementById('name-input').value = "";
+            document.getElementById('url-input').value = "";
+            document.getElementById('clicks-input').value = "";
         },
     };
 
     var controller = {
         init: function(){
             model.currentCat = model.cats[0];
-
             listView.init();
             catView.init();
             adminView.init();
@@ -148,6 +158,22 @@
             model.adminBoxVisible = true;
             adminView.render();
         },
+
+        saveAdminInput: function (name, url, clicks) {
+            if (name != "") {
+                model.currentCat.name = name;
+            }
+            if (url != "") {
+                model.currentCat.url = url;
+            }
+            if (clicks != "") {
+                model.currentCat.clickCount = clicks;
+            }
+            catView.render();
+            listView.render();
+            this.hideAdminBox();
+        }
+
 
     };
 
