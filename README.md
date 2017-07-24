@@ -1,2 +1,2 @@
 # Cat-clicker-premium
-Counts the clicks on each cat photo taken from a list of cats. The list of cats can be edited. This is a JavaScript MVC design pattern exercise.
+This is a MVC (Model-View-Controller) design pattern exercise written in vanilla JavaScript. Counts the clicks on each cat photo taken from a list of cats. The cat's properties can be edited. 
